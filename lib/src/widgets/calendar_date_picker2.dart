@@ -16,7 +16,7 @@ const double _dayPickerRowHeight = 42.0;
 const int _maxDayPickerRowCount = 6; // A 31 day month that starts on Saturday.
 // One extra row for the day-of-week header.
 const double _maxDayPickerHeight =
-    _dayPickerRowHeight * (_maxDayPickerRowCount + 1);
+    _dayPickerRowHeight * (_maxDayPickerRowCount + 1) + 12;
 const double _monthPickerHorizontalPadding = 8.0;
 
 const int _yearPickerColumnCount = 3;
@@ -1111,7 +1111,7 @@ class _DayPickerState extends State<_DayPicker> {
       ),
       child: GridView.custom(
         padding: EdgeInsets.zero,
-        physics: const ClampingScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: _dayPickerGridDelegate,
         childrenDelegate: SliverChildListDelegate(
           dayItems,
